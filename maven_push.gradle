@@ -78,7 +78,9 @@ afterEvaluate { project ->
     uploadArchives {
         repositories {
             mavenDeployer {
-                configurePOM(pom)
+				if (!isTravis) {
+					configurePOM(pom)
+				}
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
                 if (local!=true) {
                     repository(url: sonatypeRepositoryUrl) {
