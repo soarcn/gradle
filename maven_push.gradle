@@ -61,6 +61,8 @@ if (!ext.properties.containsKey('nexusUsername')) {
     } else {
         ext.set('nexusUsername', 'user')
     }
+} else {
+	ext.set('nexusUsername', 'user')
 }
 
 if (!ext.properties.containsKey('nexusPassword')) {
@@ -70,7 +72,10 @@ if (!ext.properties.containsKey('nexusPassword')) {
     } else {
         ext.set('nexusPassword', 'pass')
     }
+} else {
+	ext.set('nexusPassword', 'pass')
 }
+
 
 afterEvaluate { project ->
     uploadArchives {
