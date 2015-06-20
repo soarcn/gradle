@@ -15,13 +15,8 @@
  */
 
 apply plugin: 'com.android.library'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
 
 archivesBaseName = POM_NAME
-
-dependencies {
-}
 
 android {
     compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
@@ -51,9 +46,6 @@ android {
         exclude 'META-INF/NOTICE.txt'
     }
 
-    lintOptions {
-        abortOnError false
-    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7

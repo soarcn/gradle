@@ -15,9 +15,6 @@
  */
 
 apply plugin: 'com.android.application'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-
 
 android {
     compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
@@ -36,22 +33,6 @@ android {
             java.srcDirs = ['src']
             res.srcDirs = ['res']
         }
-    }
-
-
-    buildTypes {
-//        release {
-//            signingConfig signingConfigs.release
-//        }
-
-
-        debug {
-            versionNameSuffix '-dev'
-        }
-    }
-
-    lintOptions {
-        abortOnError false
     }
 
 	compileOptions {
