@@ -104,7 +104,7 @@ afterEvaluate { project ->
         from android.sourceSets.main.java.srcDirs
     }
 
-    task uploadLocal(type: upload) {
+    task uploadLocal(group: upload) {
          dependsOn{uploadArchives}
     }
 
