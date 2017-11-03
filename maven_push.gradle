@@ -44,6 +44,19 @@ if (project.gradle.startParameter.taskNames.contains("uploadLocal")) {
     local = false
 }
 
+def getSnapshotRepositoryUrl() {
+    return hasProperty('SNAPSHOT_REPOSITORY_URL') ? SNAPSHOT_REPOSITORY_URL
+            : "https://oss.sonatype.org/content/repositories/snapshots/"
+}
+
+def getRepositoryUsername() {
+    return hasProperty('NEXUS_USERNAME') ? NEXUS_USERNAME : ""
+}
+
+def getRepositoryPassword() {
+    return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : ""
+}
+
 
 if (ext.properties.containsKey('signing.keyId') &&
         !ext.properties.containsKey('signing.password')) {
@@ -68,7 +81,7 @@ afterEvaluate { project ->
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
                 if (local!=true) {
                     repository(url: sonatypeRepositoryUrl) {
-                        authentication(userName: nexusUsername, password: nexusPassword)
+                        authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
                     }
                 } else {
                     repository(url: githubRepositoryUrl)
