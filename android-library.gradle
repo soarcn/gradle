@@ -27,8 +27,6 @@ android {
     compileOptions.encoding = "UTF-8"
 
     defaultConfig {
-        versionCode Integer.parseInt(project.VERSION_CODE)
-        versionName project.VERSION_NAME
         minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
         targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
     }
